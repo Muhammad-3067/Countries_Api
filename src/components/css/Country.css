@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.country-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 1rem;
+    padding: 2rem;
+    width: 400px;
+    box-shadow: 0px 0px 10px 0px rgba(34, 60, 80, 0.2);
+    border-radius: 3px;
+    transition: .2s ;
+}
+.country-wrapper:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 18px 2px rgba(34, 60, 80, 0.2);
+}
+.name {
+    text-align: center;
+    color: #F1B914;
+    margin: 2rem 0 1rem;
+    font-weight: 300;
+}
+
+.img-card {
+    margin: 0 auto;
+    width: 230px;
+    height: 130px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgba(34, 60, 80, 0.2);
+}
+
+.flag {
+    width: 230px;
+    height: 130px;
+    border-radius: 5px;
+}
+h1 {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.733);
+}
+span {
+    font-weight: 300;
+}
+@media (max-width: 767px) {
+    .country-wrapper {
+        width: 300px;
+    }
+    .name {
+        margin: 1.5rem 0 .7rem;
+    }
+    .img-card { 
+        width: 180px;
+        height: 80px; 
+    }
+    
+    .flag {
+        width: 180px;
+        height: 80px; 
+    }
+    h1 {
+        font-size: 15px;
+    }
+    p {
+        font-size: 13;
+    }
+}
+@media (min-width: 767px) and (max-width: 1024px) {
+    .country-wrapper {
+        width: 350px;
+    }
+    .name {
+        margin: 1.7rem 0 .8rem;
+    }
+    .img-card { 
+        width: 200px;
+        height: 100px; 
+    }
+    
+    .flag {
+        width: 200px;
+        height: 100px; 
+    }
+    h1 {
+        font-size: 17px;
+    }
+    p {
+        font-size: 15;
+    }
+}
