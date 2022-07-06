@@ -1,5 +1,7 @@
 import React from "react";
-import "./css/Country.css";
+import "./Country.css";
+import { Link } from "react-router-dom";
+import CountryDataCard from "../country-data-page/CountryDataCard";
 
 const Country = (props) => {
   const {
@@ -26,8 +28,9 @@ const Country = (props) => {
     }
     return sumCurrency.join(": ");
   };
+
   return (
-    <div className="country-wrapper">
+    <Link state={props.data} to="/country-card" className="country-wrapper">
       <div className="img-card">
         <img className="flag" src={png} alt="" />
       </div>
@@ -44,7 +47,7 @@ const Country = (props) => {
       <h2>
         Currency: <span>{displayCurrencies(currencies)}</span>
       </h2>
-    </div>
+    </Link>
   );
 };
 

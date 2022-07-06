@@ -1,41 +1,29 @@
 import "./App.css";
 import { ImStatsBars } from "react-icons/im";
-import axios from "axios";
 import { useEffect, useState } from "react";
-import Country from "./components/Country";
-import Graph from "./components/Graph";
-import { RiArrowUpCircleFill } from "react-icons/ri";
+import Country from "./components/country-card/Country";
+import Graph from "./components/graph/Graph";
+// import { RiArrowUpCircleFill } from "react-icons/ri";
+import { useSelector, useDispatch } from "react-redux";
+import { getCountry } from "./redux/country/countrySlice";
 
 function App() {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [inputValue, setInputValue] = useState("");
-  const [wheel, setWheel] = useState("");
-  const [screenSize, setScreenSize] = useState(0);
+  // const [wheel, setWheel] = useState("");
+  // const [screenSize, setScreenSize] = useState(0);
+  const dispatch = useDispatch();
+  const { countries, status, error } = useSelector((state) => state.country);
 
   useEffect(() => {
-    setTimeout(fetchData, 2000);
-  }, []);
-
-  const fetchData = () => {
-    const API_URL = "https://restcountries.com/v3.1/all";
-    axios
-      .get(API_URL)
-      .then((response) => {
-        setData(response.data);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+    dispatch(getCountry());
+  }, [dispatch]);
 
   const shareData = (e) => {
     setInputValue(e.target.value);
   };
 
   const shareCountryData = () => {
-    const filterData = data
+    const filterData = countries
       .filter((country) => {
         const searchTerm = inputValue.toLowerCase();
         const countryName = country.name.common.toString().toLowerCase();
@@ -61,32 +49,42 @@ function App() {
         }
       })
       .map((country, index) => <Country key={index} data={country} />);
-    const countryData = isLoading ? (
-      <img src="/images/loader.gif" alt="" />
-    ) : (
-      filterData
+
+    // ! loader
+    const countryData = (
+      <div className="countries">
+        {status === "loading" ? (
+          <img src="/images/loader.gif" alt="" />
+        ) : (
+          filterData
+        )}
+        {error && (
+          <h2 className="card-error-msg">An error occured: Server Error</h2>
+        )}
+      </div>
     );
+
     return countryData;
   };
 
-  const scroll = (e) => {
-    setScreenSize(e.pageY);
-    if (e.pageY > 500) {
-      setWheel(
-        <div>
-          <a className="arrow-up" href="#up">
-            <RiArrowUpCircleFill />
-          </a>
-        </div>
-      );
-    } else {
-      setWheel("");
-    }
-  };
-
+  // const scroll = (e) => {
+  //   setScreenSize(e.pageY);
+  //   if (e.pageY > 500) {
+  //     setWheel(
+  //       <div>
+  //         <a className="arrow-up" href="#up">
+  //           <RiArrowUpCircleFill />
+  //         </a>
+  //       </div>
+  //     );
+  //   } else {
+  //     setWheel("");
+  //   }
+  // };
+  // onWheel={scroll}
+  // {wheel}
   return (
-    <div onWheel={scroll} className="App">
-      <p style={{ position: "fixed" }}>{screenSize}</p>
+    <div className="App">
       <header id="up" className="country-header">
         <h2 className="header">World Countries Data</h2>
         <p className="subtitle">Currently, we have 250 countries</p>
@@ -103,15 +101,14 @@ function App() {
           onChange={shareData}
           placeholder="Search countries by name, city and languages"
         />
-        <div>
+        <div className="stats">
           <a href="#stat">
             <ImStatsBars />
           </a>
         </div>
       </div>
-      <div className="countries">{shareCountryData()}</div>
+      <div>{shareCountryData()}</div>
       <Graph />
-      {wheel}
     </div>
   );
 }

@@ -42,8 +42,8 @@
 }
 a:-webkit-any-link {
   cursor: pointer;
-  color: #efa41c;
-  font-size: 60px;
+  text-decoration: none;
+  color: black;
 }
 
 .arrow-up {
@@ -52,11 +52,23 @@ a:-webkit-any-link {
   right: 0;
 }
 
+.stats a {
+  font-size: 60px;
+  color: #EFA41C;
+}
 .countries {
   display: flex;
   justify-content: space-around;
   padding: 1rem 0;
   flex-wrap: wrap;
+}
+
+.card-error-msg {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
 }
 
 @media (max-width: 767px) {
@@ -74,7 +86,7 @@ a:-webkit-any-link {
     border-radius: 5px;
   text-indent: 1rem;
   }
-  a:-webkit-any-link {
+  .stats a {
     font-size: 40px;
   }
 }

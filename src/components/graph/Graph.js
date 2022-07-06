@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./css/Graph.css";
+import "./Graph.css";
 import tenHighestPopulation from "./data/MostHighestPopulation";
 import tenMostSpokenLanguages from "./data/MostSpokenLang";
 

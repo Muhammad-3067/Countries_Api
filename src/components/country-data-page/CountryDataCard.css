@@ -1,0 +1,116 @@
+
+.card-data {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.back-btn, .maps a, .border-country {
+    display: inline-block;
+    padding: 5px 15px;
+    box-shadow: 0px 0px 19px -1px rgba(34, 60, 80, 0.2);
+    margin: 1rem 0;
+    border-radius: 30px;
+}
+
+.right-side {
+    margin: 1rem 2rem ;
+}
+
+.components {
+    display: flex;
+}
+
+.data-block {
+    display: flex;
+    padding: .8rem 0;
+    gap: 2rem;
+}
+.data-block h3 {
+    margin: .5rem 0;
+}
+.data-block > span {
+    font-weight: 100;
+}
+
+.maps a {
+    margin: 0 1rem;
+}
+
+.border-country {
+    margin: .5rem 5px;
+    text-decoration:underline;
+    cursor: pointer;
+}
+.leftside-flag {
+    margin: auto;
+}
+.leftside-flag img {
+    width: 500px;
+}
+.borders {
+    margin: 1rem 0;
+}
+
+@media (max-width: 767px) {
+    .card-data {
+        width: 90%;
+    }
+    .components {
+        flex-direction: column;
+    }
+    .leftside-flag {
+        margin: 0 auto;
+    }
+    .right-side {
+        margin: .2rem ;
+    }
+    .leftside-flag img {
+        width: 300px;
+    }
+    .data-block h3 {
+        margin: .3rem 0;
+    }
+    .right-side a {
+        font-size: normal;
+    }
+    .maps a {
+        margin: .3rem ;
+    }
+    .country-name {
+        text-align: center;
+        font-size: 27px;
+    }
+    .borders {
+        margin-top: 1rem;
+    }
+    .border-country {
+        margin: 5px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .card-data {
+        width: 85%;
+    }
+    .components {
+        flex-direction: column;
+    }
+    .leftside-flag {
+        margin: 0 auto;
+    }
+    .right-side {
+        margin: .2rem ;
+    }
+    .leftside-flag img {
+        width: 400px;
+    }
+    .data-block h3 {
+        margin: .3rem 0;
+    }
+    .right-side a {
+        font-size: normal;
+    }
+    .country-name {
+        text-align: center;
+        font-size: 33px;
+    }
+}
