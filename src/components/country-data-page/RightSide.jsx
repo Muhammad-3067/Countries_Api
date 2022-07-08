@@ -18,6 +18,13 @@ const RightSide = (props) => {
     timezones,
   } = props.data;
 
+  // * Getting a native Name from name object
+  const nativeName = name.nativeName;
+  let officialName = [];
+  for (let i in nativeName) {
+    officialName.push(nativeName[i].official);
+  }
+
   // * Sending data to parent component
   const sendData = (e) => {
     props.onClick(e.target.innerText);
@@ -46,7 +53,7 @@ const RightSide = (props) => {
             {border}
           </a>
         ))
-      : "No borders";
+      : "No border Countries";
     return borderCont;
   };
 
@@ -56,7 +63,7 @@ const RightSide = (props) => {
       <div className="data-block">
         <div className="block-1">
           <h3>
-            Native Name: <span>{name.nativeName.common}</span>
+            Native Name: <span>{officialName.join(", ")}</span>
           </h3>
           <h3>
             Capital: <span>{capital}</span>
@@ -90,16 +97,21 @@ const RightSide = (props) => {
           <h3>
             Car side: <span>{car.side}</span>
           </h3>
-          <h3>
-            Timezones: <span>{timezones}</span>
+          <h3 className="timezones">
+            Timezones: <span>{timezones.join(", ")}</span>
           </h3>
         </div>
       </div>
       <div className="maps">
-        <a href={maps.googleMaps}>Google map</a>
-        <a href={maps.openStreetMaps}>OpenStreet map</a>
+        Maps:
+        <a href={maps.googleMaps} target="_blank" rel="noreferrer">
+          Google map
+        </a>
+        <a href={maps.openStreetMaps} target="_blank" rel="noreferrer">
+          OpenStreet map
+        </a>
       </div>
-      <div className="borders">{countryBorder()}</div>
+      <div className="borders">Border Countries: {countryBorder()}</div>
     </div>
   );
 };

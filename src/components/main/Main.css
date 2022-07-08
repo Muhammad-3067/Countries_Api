@@ -1,0 +1,93 @@
+
+.main {
+    background-color: #F5F5F5;
+    padding-top: 2rem;
+  }
+  .country-header {
+    padding: 2rem 0;
+    text-align: center;
+  }
+  .header {
+    color: #EFA41C;
+    font-size: 75px;
+  }
+  .subtitle {
+    font-size: 30px;
+    font-weight: 500;
+    color: #4e4e4e;
+  }
+  .satisfied-criteria {
+    color: #EFA41C;
+    font-size: 30px;
+    font-style: italic;
+  }
+  
+  .controls {
+    background-color: #F9FBFE;
+    text-align: center;
+  }
+  .search-input {
+    color: orange;
+    width: 50%;
+    height: 5rem;
+    margin: 3rem 0;
+    text-indent: 2rem;
+    outline: none;
+    border: 0.2rem solid #f8e7e7;
+    font-size: 2rem;
+    border-radius: 3rem;
+    background: #faf6f6;
+  }
+  .search-input:hover {
+    box-shadow: 0px 0px 5px 0px rgba(34, 60, 80, 0.2);
+  }
+  a:-webkit-any-link {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .arrow-up {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+  
+  .stats a {
+    font-size: 60px;
+    color: #EFA41C;
+  }
+  .countries {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+  }
+  
+  .card-error-msg {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  @media (max-width: 767px) {
+    .header {
+      font-size: 25px;
+    }
+    .subtitle {
+      font-size: 15px;
+    }
+    .search-input {
+      font-size: 1rem; 
+      width: 90%;
+      height: 3rem;
+      margin: 1.5rem 0;
+      border-radius: 5px;
+    text-indent: 1rem;
+    }
+    .stats a {
+      font-size: 40px;
+    }
+  }

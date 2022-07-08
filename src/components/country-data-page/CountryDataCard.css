@@ -1,7 +1,12 @@
+.main-card-cont {
+    width: 100%;
+    height: 100vh;
+}
 
 .card-data {
     width: 70%;
     margin: 0 auto;
+    padding-top: 4rem;
 }
 
 .back-btn, .maps a, .border-country {
@@ -21,7 +26,8 @@
 }
 
 .data-block {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     padding: .8rem 0;
     gap: 2rem;
 }
@@ -30,6 +36,10 @@
 }
 .data-block > span {
     font-weight: 100;
+}
+
+.timezones {
+    word-break: break-all;
 }
 
 .maps a {
